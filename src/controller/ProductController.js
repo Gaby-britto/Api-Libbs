@@ -67,7 +67,7 @@ const ProductController = {
     try {
       const { id } = req.params;
       const produtoEncontrado = await Product.findByPk(id);
-      if (produtoEncontrado == null) {
+      if (produtoEncontrado === null) {
         return res.status(400).json({
           msg: "Produto nao encontrado!",
         });

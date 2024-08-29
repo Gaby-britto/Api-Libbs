@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = require('./router/router');
 const sequelize = require('./config/config');
@@ -7,7 +8,7 @@ const app = express();
 
 //modelo da Api Json
 app.use(express.json());
-app.use('/api/user/', router)
+app.use('/api', router)
 app.use('/api/product/', router)
 
 
@@ -19,7 +20,7 @@ sequelize.authenticate()
     await sequelize.sync();
 })
 .then(() =>  {
-    app.listen(8080, () => {
+    app.listen(process.env.PORT == null ? 8080 : process.env.PORT, () => {
         console.log("------------");
         console.log("  Rodando   ");
         console.log("------------");

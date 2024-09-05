@@ -5,6 +5,9 @@ const sequelize = require('./config/config');
 const User = require("./models/user");
 const Product = require ("./models/product");
 const app = express();
+const cors = require('cors');
+
+app.use(cors());
 
 //modelo da Api Json
 app.use(express.json());

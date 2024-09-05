@@ -21,7 +21,7 @@ const UserController = {
           msg: 'Email ou senha incorretos'
         });
       };
-
+      
       const token = jwt.sign({
         email: user.email, 
         nome: user.nome
